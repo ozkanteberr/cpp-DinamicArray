@@ -1,18 +1,19 @@
 #pragma once
 //#include <iosfwd>
-
+#include <ostream>
+#include <ostream>
 
 class DynamicArray
 {
 private:
 	int* data;
-	int  size=0;
+	int  size;
 	int  capacity;
 
 public:
 	DynamicArray();
 	DynamicArray(int capacity);
-	DynamicArray(const DynamicArray& deepCopy);
+	DynamicArray(const DynamicArray& other);
 	virtual ~DynamicArray();
 
 
@@ -31,5 +32,5 @@ public:
 	DynamicArray& operator=(const DynamicArray& other);
 	bool operator==(const DynamicArray& other);
 	bool operator!=(const DynamicArray& other);
-	//std::ostream& operator<<(std::ostream& os, const DynamicArray& other);
+	friend std::ostream& operator<<(std::ostream& os, const DynamicArray& other);
 };
